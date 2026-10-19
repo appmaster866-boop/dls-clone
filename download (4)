@@ -1,0 +1,50 @@
+# Unity
+/[Ll]ibrary/
+/[Tt]emp/
+/[Oo]bj/
+/[Bb]uild/
+/[Bb]uilds/
+/[Ll]ogs/
+/[Uu]ser[Ss]ettings/
+/[Mm]emoryCaptures/
+/[Rr]ecordings/
+*.pidb.meta
+*.pdb.meta
+*.mdb.meta
+sysinfo.txt
+*.apk
+*.aab
+*.unitypackage
+crashlytics-build.properties
+/[Aa]ssets/[Ss]treamingAssets/aa.meta
+/[Aa]ssets/[Ss]treamingAssets/aa/*
+/[Aa]ssets/AddressableAssetsData/*/*.bin*
+
+# IDE
+.vs/
+.idea/
+.vscode/
+*.csproj
+*.sln
+*.suo
+*.user
+*.userprefs
+
+# Firebase / secrets
+google-services.json
+GoogleService-Info.plist
+**/google-services.json.meta
+serviceAccount*.json
+.env
+.env.*
+.firebase/
+firebase-debug.log
+firestore-debug.log
+
+# Node
+node_modules/
+functions/lib/
+
+# OS
+.DS_Store
+Thumbs.db

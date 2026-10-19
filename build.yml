@@ -1,0 +1,24 @@
+name: Unity Build
+on:
+  pull_request: { branches: [dev] }
+  push: { branches: [main] }
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    # Unity litsenziyasi (UNITY_LICENSE secret) qo'shilmaguncha o'chirib qo'yilgan
+    if: ${{ vars.ENABLE_UNITY_CI == 'true' }}
+    steps:
+      - uses: actions/checkout@v4
+        with: { lfs: true }
+      - uses: actions/cache@v4
+        with:
+          path: Library
+          key: Library-${{ hashFiles('Assets/**', 'Packages/**', 'ProjectSettings/**') }}
+          restore-keys: Library-
+      - uses: game-ci/unity-test-runner@v4
+        env: { UNITY_LICENSE: "${{ secrets.UNITY_LICENSE }}" }
+        with: { githubToken: "${{ secrets.GITHUB_TOKEN }}" }
+      - uses: game-ci/unity-builder@v4
+        env: { UNITY_LICENSE: "${{ secrets.UNITY_LICENSE }}" }
+        with: { targetPlatform: Android }
